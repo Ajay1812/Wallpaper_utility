@@ -116,7 +116,7 @@ def main():
 
         st.markdown("Effortlessly remove backgrounds with precision. Transform photos instantly. Elevate your visuals with our intuitive Background Remover App!")
         # st.write("##")
-        st.write("### Upload and download :gear:")
+        # st.write("### Upload and download :gear:")
         my_upload = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
         MAX_FILE_SIZE = 5 * 1024 * 1024
