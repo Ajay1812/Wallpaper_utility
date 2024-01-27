@@ -10,6 +10,10 @@ from PIL import Image
 from io import BytesIO
 from datetime import datetime
 
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 def display(thumbnail,url):
     cards = card(
     title="",
@@ -38,14 +42,13 @@ headers = {
 def get_image(search,page):
     # response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={config.api_access_key}")
     response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={headers['authorization']}")
-    # response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}", headers=headers)
     data = response.json()
     return data
 
 
 def main():
     st.set_page_config("Unsplash Photo Gallery",initial_sidebar_state="collapsed",layout="wide")
-
+    local_css('style/styles.css')
 
     selected = option_menu(
         menu_title=None,
