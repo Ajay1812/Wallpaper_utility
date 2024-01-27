@@ -1,6 +1,6 @@
 import requests
 import json
-import config
+# import config
 import streamlit as st
 from streamlit_card import card
 import base64
