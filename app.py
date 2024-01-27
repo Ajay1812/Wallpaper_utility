@@ -30,14 +30,14 @@ def display(thumbnail,url):
 )
     return cards
 
-# headers = {
-#     'authorization':st.secrets["API_KEY"],
-# }
+headers = {
+    'authorization':st.secrets["API_KEY"],
+}
 
 
 def get_image(search,page):
-    response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={config.api_access_key}")
-    # response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={headers['authorization']}")
+    # response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={config.api_access_key}")
+    response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}&client_id={headers['authorization']}")
     # response = requests.get(f"https://api.unsplash.com/search/photos?page={page}&per_page=12&query={search}", headers=headers)
     data = response.json()
     return data
